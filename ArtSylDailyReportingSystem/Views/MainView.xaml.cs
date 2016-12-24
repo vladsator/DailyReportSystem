@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace ArtSylDailyReportingSystem
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для MainView.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
