@@ -1,0 +1,40 @@
+﻿<Window
+    x:Class="ArtSylDailyReportingSystem.Views.StartWorkingView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ArtSylDailyReportingSystem.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    Title="StartWorkingView"
+    Width="300"
+    SizeToContent="Height"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <Style TargetType="WrapPanel">
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Height" Value="30" />
+        </Style>
+    </Window.Resources>
+    <StackPanel>
+        <WrapPanel Orientation="Horizontal">
+            <Label Content="Enter date:" />
+            <DatePicker
+                Width="100"
+                Height="35"
+                SelectedDate="{x:Static sys:DateTime.Now}" />
+        </WrapPanel>
+        <WrapPanel Orientation="Horizontal">
+            <Label Content="Enter time:" />
+            <xctk:TimePicker
+                Width="100"
+                Height="25"
+                Value="{x:Static sys:DateTime.Now}" />
+        </WrapPanel>
+        <Button Content="Accept" />
+    </StackPanel>
+</Window>
