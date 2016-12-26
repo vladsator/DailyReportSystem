@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using ArtSylDailyReportingSystem.Views;
+using ArtSylDailyReportingSystem.Comands.Models;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 
@@ -16,17 +11,6 @@ namespace ArtSylDailyReportingSystem.ViewModels
         public DateTime CameInDate { get; set; }
 
         public DateTime CameInTime {get; set;}
-
-        private DateTime _result;
-        public DateTime Result
-        {
-            get { return _result; }
-            set
-            {
-                _result = value;
-                RaisePropertyChanged();
-            }
-        }
 
         public StartWorkingViewModel()
         {
@@ -42,7 +26,8 @@ namespace ArtSylDailyReportingSystem.ViewModels
             {
                 return _acceptCommand ?? (_acceptCommand = new RelayCommand(() =>
                 {
-                    Result = CameInDate.AddHours(CameInTime.Hour).AddMinutes(CameInTime.Minute);
+                    var dailyNote = new DailyNote(DateTime.Parse(CameInDate.ToShortDateString() + " " + CameInTime.ToLongTimeString()));
+
                 }));
             }
         }

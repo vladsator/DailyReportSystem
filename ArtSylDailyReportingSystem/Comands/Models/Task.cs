@@ -9,11 +9,17 @@ using System.Windows;
 
 namespace ArtSylDailyReportingSystem.Comands.Models
 {
-    class Task : INotifyPropertyChanged
+    public class Task : INotifyPropertyChanged
     {
         private static int _taskCounter = 0;
         private int _id;
         private string _description;
+
+        public Task(string description)
+        {
+            this.Id = _taskCounter++;
+            this.Description = description;
+        }
 
         public int Id
         {
@@ -33,12 +39,6 @@ namespace ArtSylDailyReportingSystem.Comands.Models
                 _description = value;
                 OnPropertyChanged("Description");
             }
-        }
-
-        public Task(string description)
-        {
-            this.Id = _taskCounter++;
-            this.Description = description;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

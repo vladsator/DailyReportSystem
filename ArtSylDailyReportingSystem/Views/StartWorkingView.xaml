@@ -41,6 +41,5 @@
                 Value="{Binding CameInTime}" />
         </WrapPanel>
         <Button Command="{Binding AcceptCommand}" Content="Accept" />
-        <Label Height="60" Content="{Binding Result}" />
     </StackPanel>
 </Window>

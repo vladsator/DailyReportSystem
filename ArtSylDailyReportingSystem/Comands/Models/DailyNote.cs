@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ArtSylDailyReportingSystem.Comands.Models
 {
-    class DailyNote : INotifyPropertyChanged
+    public class DailyNote : INotifyPropertyChanged
     {
         private DateTime _cameInTime;
         private DateTime _cameOutTime;
@@ -44,11 +44,9 @@ namespace ArtSylDailyReportingSystem.Comands.Models
             }
         }
 
-        public DailyNote(DateTime cameInTime, DateTime cameOutTime, List<Task> tasks )
+        public DailyNote(DateTime cameInTime)
         {
             CameInTime = cameInTime;
-            CameOutTime = cameOutTime;
-            Tasks = tasks;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
