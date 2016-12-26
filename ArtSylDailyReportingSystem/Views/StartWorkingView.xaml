@@ -6,11 +6,15 @@
     xmlns:local="clr-namespace:ArtSylDailyReportingSystem.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:viewModels="clr-namespace:ArtSylDailyReportingSystem.ViewModels"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     Title="StartWorkingView"
     Width="300"
     SizeToContent="Height"
     mc:Ignorable="d">
+    <Window.DataContext>
+        <viewModels:StartWorkingViewModel />
+    </Window.DataContext>
     <Window.Resources>
         <Style TargetType="WrapPanel">
             <Setter Property="Margin" Value="5" />
@@ -26,15 +30,17 @@
             <DatePicker
                 Width="100"
                 Height="35"
-                SelectedDate="{x:Static sys:DateTime.Now}" />
+                SelectedDate="{Binding CameInDate}" />
+
         </WrapPanel>
         <WrapPanel Orientation="Horizontal">
             <Label Content="Enter time:" />
             <xctk:TimePicker
                 Width="100"
                 Height="25"
-                Value="{x:Static sys:DateTime.Now}" />
+                Value="{Binding CameInTime}" />
         </WrapPanel>
-        <Button Content="Accept" />
+        <Button Command="{Binding AcceptCommand}" Content="Accept" />
+        <Label Height="60" Content="{Binding Result}" />
     </StackPanel>
 </Window>
